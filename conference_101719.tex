@@ -58,11 +58,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-Automated detection of brain tumors and strokes from medical images can help improve diagnosis and treatment, especially in resource-constrained settings where there may be shortages of specialized radiologists and neurologists.
+Automated detection of brain tumors and strokes from medical images can help improve diagnosis and treatment, 
+especially in resource-constrained settings where there may be shortages of specialized radiologists and neurologists.
 Manual analysis of scans by experts is time-consuming and its availability depends on their schedules. This often leads to treatment delays for patients. 
-Common techniques for the detection of brain abnormalities rely on manual segmentation and feature extraction from images by radiologists. Recently, deep learning methods like Convolutional Neural Networks (CNNs) have shown promising performance in various medical image analysis tasks.
+Common techniques for the detection of brain abnormalities rely on manual segmentation and feature extraction from images by radiologists.
+Recently, deep learning methods like Convolutional Neural Networks (CNNs) have shown promising performance in various medical image analysis tasks.
 
-However, applying these techniques requires large, annotated datasets which are challenging to obtain due to the expertise required for labeling. In this research, the aim is to develop a website for detecting brain tumors and strokes from MRI scans to assist intensive care physicians.
+However, applying these techniques requires large, annotated datasets which are challenging to obtain due to the expertise required for labeling.
+In this research, the aim is to develop a website for detecting brain tumors and strokes from MRI scans to assist intensive care physicians.
 
 Around 3000 MRI images were collected from public datasets and dataset settings to facilitate model training and due to the large dataset size, the model training process is divided into phases. 
 
@@ -78,11 +81,17 @@ brain tumor, brain stroke, CV
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
 
-Brain tumors, whether malignant or benign, pose a severe threat due to their growth in or near the brain, affecting vital functions (Figure \ref{fig:brain_with_tumor}) \cite{br35h}. Accurate classification aids in early diagnosis, necessitating optimized digital methods like deep learning models from MRI data \cite{bioengineering9120783}.
+Brain tumors, whether malignant or benign, pose a severe threat due to their growth in or near the brain, affecting vital functions (Figure \ref{fig:brain_with_tumor}) \cite{br35h}.
+Accurate classification aids in early diagnosis, necessitating optimized digital methods like deep learning models from MRI data \cite{bioengineering9120783}.
 
-Stroke, a sudden interruption of blood flow to the brain, is a leading cause of death and disability worldwide. Timely intervention, including reperfusion therapy, is crucial for salvaging ischemic brain tissue and improving post-stroke outcomes. Utilizing a CNN model, multi-image classification categorizes MRI scans into tumor, no tumor, stroke, or normal, facilitating timely diagnosis and treatment decisions \cite{huggingface_data, ding2021repvgg}.
+Stroke, a sudden interruption of blood flow to the brain, is a leading cause of death and disability worldwide. 
+Timely intervention, including reperfusion therapy, is crucial for salvaging ischemic brain tissue and improving post-stroke outcomes.
+Utilizing a CNN model, multi-image classification categorizes MRI scans into tumor, no tumor, stroke, or normal, facilitating timely diagnosis and treatment decisions \cite{huggingface_data, ding2021repvgg}.
 
-Brain tumors are the growth of abnormal cells in or near brain tissue and are considered one of the most important and dangerous brain diseases. In the early stages, they can often be removed with surgery leading to complete recovery. However, in advanced stages, complete recovery becomes less likely. As a result, the average 5-year survival rate for those diagnosed in the early stages is about 92\%, while it drops to approximately 36\% for those diagnosed at a later stage \cite{Kang2023, kang2023bgfyolo}.
+Brain tumors are the growth of abnormal cells in or near brain tissue and are considered one of the most important
+and dangerous brain diseases. In the early stages, they can often be removed with surgery leading to complete recovery.
+However, in advanced stages, complete recovery becomes less likely. As a result, the average 5-year survival rate for those diagnosed in the early stages is about 92\%,
+while it drops to approximately 36\% for those diagnosed at a later stage \cite{Kang2023, kang2023bgfyolo}.
 
 \begin{figure}
     \centering
@@ -91,47 +100,76 @@ Brain tumors are the growth of abnormal cells in or near brain tissue and are co
     \label{fig:brain_with_tumor}
 \end{figure}
 
-A stroke happens when blood flow to any part of the brain stops. Each person has a different recovery time and need for long-term care. Problems with moving, thinking, and talking often improve in the first weeks or months after a stroke. Some people will continue to improve months or even years after a stroke \cite{jocher2022yolo5, iandola2014densenet}. Artificial intelligence has proven its superiority in detecting diseases using MRI and CT scans \cite{ABDELMAKSOUD201571-51, chen791-53}.
+A stroke happens when blood flow to any part of the brain stops. Each person has a different recovery time and need for long-term care.
+Problems with moving, thinking, and talking often improve in the first weeks or months after a stroke. 
+Some people will continue to improve months or even years after a stroke \cite{jocher2022yolo5, iandola2014densenet}. 
+Artificial intelligence has proven its superiority in detecting diseases using MRI and CT scans \cite{ABDELMAKSOUD201571-51, chen791-53}.
 
-We have designed a program specifically to assist healthcare professionals and patients in diagnosing and detecting brain diseases. One challenge we face is developing a model that achieves satisfactory results. Another challenge is designing a user interface suitable for all users, whether they are doctors, nurses, or patients. Despite these challenges, we have achieved satisfactory results according to our clients.
+We have designed a program specifically to assist healthcare professionals and patients in diagnosing and detecting brain diseases.
+One challenge we face is developing a model that achieves satisfactory results.
+Another challenge is designing a user interface suitable for all users, whether they are doctors, nurses, or patients.
+Despite these challenges, we have achieved satisfactory results according to our clients.
 
-The objective of this project is to help patients and intensive care doctors detect brain tumors and stroke easily from MRI and CT scans. We will use artificial intelligence, machine learning, and neural network techniques to detect brain strokes and tumors. Our goal is to build an accessible website for both patients and doctors that will assist in providing accurate diagnoses \cite{ma82, dattaad:10.1504}.
+The objective of this project is to help patients and intensive care doctors detect brain tumors and stroke easily from MRI and CT scans.
+We will use artificial intelligence, machine learning, and neural network techniques to detect brain strokes and tumors. 
+Our goal is to build an accessible website for both patients and doctors that will assist in providing accurate diagnoses \cite{ma82, dattaad:10.1504}.
 
 \section{ RELATED WORK}
 
-% In this section, we study previous research works about brain tumor and brain stroke detection using the CNN algorithm. we design two models one for brain tumors and another for brain stroke.
+Recent advancements in machine learning and deep learning have significantly impacted the field of medical imaging, particularly in brain tumor detection and segmentation.
+Numerous studies have explored different approaches to enhance the accuracy and efficiency of these processes.
 
-Recent advancements in machine learning and deep learning have significantly impacted the field of medical imaging, particularly in brain tumor detection and segmentation. Numerous studies have explored different approaches to enhance the accuracy and efficiency of these processes.
+Ahmed Hamada's dataset, \emph{Br35H:: Brain Tumor Detection 2020}, available on Kaggle, 
+provides a comprehensive set of MRI images for brain tumor detection, facilitating the development and benchmarking of various algorithms \cite{br35h}.
+Similarly, the \emph{MRI-Images-of-Brain-Tumor} dataset on Huggingface by PranomVignesh serves as a valuable resource for training and evaluating deep learning models in this domain \cite{huggingface_data}.
 
-Ahmed Hamada's dataset, \emph{Br35H:: Brain Tumor Detection 2020}, available on Kaggle, provides a comprehensive set of MRI images for brain tumor detection, facilitating the development and benchmarking of various algorithms \cite{br35h}. Similarly, the \emph{MRI-Images-of-Brain-Tumor} dataset on Huggingface by PranomVignesh serves as a valuable resource for training and evaluating deep learning models in this domain \cite{huggingface_data}.
+Object detection models like YOLO (You Only Look Once) have been adapted for medical image analysis.
+The configurations for YOLOv7 \cite{wong2020yolo7} and YOLOv5 \cite{jocher2022yolo5} have been documented on GitHub, 
+highlighting their potential for fast and accurate detection of brain tumors.
+Kang et al. introduced RCS-YOLO, a high-accuracy object detector specifically designed for brain tumor detection, demonstrating its effectiveness in clinical settings \cite{Kang2023}.
+Additionally, the BGF-YOLO model enhances YOLOv8 with multiscale attentional feature fusion, further improving detection performance \cite{kang2023bgfyolo}.
 
-Object detection models like YOLO (You Only Look Once) have been adapted for medical image analysis. The configurations for YOLOv7 \cite{wong2020yolo7} and YOLOv5 \cite{jocher2022yolo5} have been documented on GitHub, highlighting their potential for fast and accurate detection of brain tumors. Kang et al. introduced RCS-YOLO, a high-accuracy object detector specifically designed for brain tumor detection, demonstrating its effectiveness in clinical settings \cite{Kang2023}. Additionally, the BGF-YOLO model enhances YOLOv8 with multiscale attentional feature fusion, further improving detection performance \cite{kang2023bgfyolo}.
+Convolutional neural networks (CNNs) have also shown promise in medical image segmentation. 
+The RepVGG model by Ding et al. proposes a VGG-style ConvNet that balances simplicity and performance \cite{ding2021repvgg}.
+DenseNet, introduced by Iandola et al., implements efficient ConvNet descriptor pyramids, optimizing feature reuse and network efficiency \cite{iandola2014densenet}.
 
-Convolutional neural networks (CNNs) have also shown promise in medical image segmentation. The RepVGG model by Ding et al. proposes a VGG-style ConvNet that balances simplicity and performance \cite{ding2021repvgg}. DenseNet, introduced by Iandola et al., implements efficient ConvNet descriptor pyramids, optimizing feature reuse and network efficiency \cite{iandola2014densenet}.
+Hybrid clustering techniques have been employed to improve brain tumor segmentation. 
+Abdel-Maksoud et al. developed a method combining K-means clustering with Fuzzy C-means and level set segmentation, achieving high accuracy and efficiency \cite{ABDELMAKSOUD201571-51}.
+Similarly, Beddad et al. presented a cooperative approach integrating K-means and fuzzy clustering for MRI image segmentation \cite{dattaad:10.1504}.
 
-Hybrid clustering techniques have been employed to improve brain tumor segmentation. Abdel-Maksoud et al. developed a method combining K-means clustering with Fuzzy C-means and level set segmentation, achieving high accuracy and efficiency \cite{ABDELMAKSOUD201571-51}. Similarly, Beddad et al. presented a cooperative approach integrating K-means and fuzzy clustering for MRI image segmentation \cite{dattaad:10.1504}.
+Advanced decision support systems leverage deep learning for automated medical diagnostics. 
+Masood et al. proposed an enhanced region-based fully convolutional network (RFCN) with multilayer fusion for lung cancer detection, showcasing its applicability in other medical fields such as brain tumor detection \cite{masood900}. 
 
-Advanced decision support systems leverage deep learning for automated medical diagnostics. Masood et al. proposed an enhanced region-based fully convolutional network (RFCN) with multilayer fusion for lung cancer detection, showcasing its applicability in other medical fields such as brain tumor detection \cite{masood900}. 
-
-Chen et al. explored disease prediction using big data and machine learning, emphasizing the importance of comprehensive data management practices for accurate medical analytics \cite{chen791-53}. This is further supported by the findings of Munappy et al., who identified data management challenges in deep learning workflows for medical applications \cite{munppy89-16}.
+Chen et al. explored disease prediction using big data and machine learning, emphasizing the importance of comprehensive data management practices for accurate medical analytics \cite{chen791-53}. 
+This is further supported by the findings of Munappy et al., who identified data management challenges in deep learning workflows for medical applications \cite{munppy89-16}.
 
 Lastly, Ma et al. introduced a multiscale patch-driven active contour model combined with random forests for automated brain tumor segmentation, demonstrating significant improvements in segmentation accuracy \cite{ma82}.
 
 These studies collectively highlight the potential of combining advanced machine learning techniques with robust data management practices to improve brain tumor detection and segmentation accuracy and efficiency.
 
 \section{WORK SCOPE}
- Today's ailments are on the rise due to our hectic and stressful lifestyles. All age groups are susceptible to illness, thus early detection is critical. Pneumonia, lung cancer, and brain tumor diseases by using symptoms or reports. Most people throughout the world still lack access to the necessary instruments for the early identification of these illnesses. One of the most hazardous diseases among both genders, early diagnosis and treatment are critical to the health of those sick. For the future, we're going to invent a strong system that can accurately work on a large medical dataset with several lung cancer and brain tumor diseases.
+
+ Today's ailments are on the rise due to our hectic and stressful lifestyles. All age groups are susceptible to illness, 
+ thus early detection is critical. Pneumonia, lung cancer, and brain tumor diseases by using symptoms or reports. 
+ Most people throughout the world still lack access to the necessary instruments for the early identification of these illnesses. 
+ One of the most hazardous diseases among both genders, early diagnosis and treatment are critical to the health of those sick. 
+ For the future, we're going to invent a strong system that can accurately work on a large medical dataset with several lung cancer and brain tumor diseases.
  
 
 \section{ PURPOSED SYSTEM}
 
-Begin by laying out the model structure using layers such as convolutional, batch normalization, activation, and max pooling to derive attributes from the inputted images. Incorporate a flattened layer to transform the resulting data from the convolutional core to a 1D vector.
-Integrate fully connected layers to facilitate classification. Set up the model by designating loss function, optimizer, and metrics. Establish callbacks such as TensorBoard for the purpose of logging, and ModelCheckpoint to retain the optimal model weights. Divvy up the dataset into training and validation groups using a function designed for data splitting. 
+Begin by laying out the model structure using layers such as convolutional, batch normalization, activation, and max pooling to derive attributes from the inputted images. 
+Incorporate a flattened layer to transform the resulting data from the convolutional core to a 1D vector.
+Integrate fully connected layers to facilitate classification. Set up the model by designating loss function, optimizer, and metrics.
+Establish callbacks such as TensorBoard for the purpose of logging, and ModelCheckpoint to retain the optimal model weights. 
+Divvy up the dataset into training and validation groups using a function designed for data splitting. 
 
-Iteratively process the training data in batches: Train the model on a batch with the history noted Assess the model using the validation set Retain model checkpoints based on validation loss. For the proposed system, the TensorFlow and Keras frameworks were used to build the deep learning model. 
+Iteratively process the training data in batches: Train the model on a batch with the history noted Assess the model using the validation set Retain model checkpoints based on validation loss. 
+For the proposed system, the TensorFlow and Keras frameworks were used to build the deep learning model. 
 
 An intuitive user interface was developed using Figma\footnote{\url{https://figma.com}} for healthcare professionals to obtain results easily. 
-The proposed models achieved 92\% and 90\% accuracy on test data for binary classification of normal vs abnormal scans. The system helps to solve the issue of time taken for specialists to diagnose brain conditions from scans. 
+The proposed models achieved 92\% and 90\% accuracy on test data for binary classification of normal vs abnormal scans. 
+The system helps to solve the issue of time taken for specialists to diagnose brain conditions from scans. 
 
 \subsection{SYSTEM ARCHITECTURE}
 
@@ -146,11 +184,14 @@ The architecture of the proposed system design is illustrated in Figure \ref{fig
 
 \subsubsection{Processing Steps}
 
-The initial step in the pipeline is pre-processing, which adapts the images according to the requirements of subsequent stages. This process includes noise reduction, edge sharpening, and conversion from RGB to grayscale. A median filter is utilized for noise removal, although modern MRI scans typically exhibit low noise levels.
+The initial step in the pipeline is pre-processing, which adapts the images according to the requirements of subsequent stages. 
+This process includes noise reduction, edge sharpening, and conversion from RGB to grayscale. A median filter is utilized for noise removal, although modern MRI scans typically exhibit low noise levels.
 
 \subsubsection{Approximate Reasoning}
 
-To estimate the tumor size, a linearization approach is employed as the first stage of deductive reasoning. This involves converting the image to a binary format, where the pixels are either black or white (0 or 1). Following this, the tumor stage is defined, and its prognosis is forecasted based on the identified tumor area.
+To estimate the tumor size, a linearization approach is employed as the first stage of deductive reasoning. 
+This involves converting the image to a binary format, where the pixels are either black or white (0 or 1). 
+Following this, the tumor stage is defined, and its prognosis is forecasted based on the identified tumor area.
 
 \subsection{Models Architecture}
 
@@ -158,23 +199,30 @@ To estimate the tumor size, a linearization approach is employed as the first st
 
 \paragraph{Dataset}
 
-For brain tumor detection, we utilize two primary datasets: Br35H \cite{br35h} for training and a dataset from Huggingface \cite{huggingface_data} for testing. These datasets comprise various brain MRI images categorized into negative (no tumor) and positive (tumor) samples.
+For brain tumor detection, we utilize two primary datasets: Br35H \cite{br35h} for training and a dataset from Huggingface \cite{huggingface_data} for testing. 
+These datasets comprise various brain MRI images categorized into negative (no tumor) and positive (tumor) samples.
 
 \paragraph{Data Shuffling and Splitting}
+
 Samples are shuffled, and if the total number exceeds the limit, they are either split into chunks or truncated to optimize learning performance.
 
 \paragraph{Cropping}
-To enhance detection accuracy, we focus on the region of interest (ROI), specifically the brain. A cropping technique isolates the brain by identifying the extreme points of the brain contour using OpenCV.
+To enhance detection accuracy, we focus on the region of interest (ROI), specifically the brain. 
+A cropping technique isolates the brain by identifying the extreme points of the brain contour using OpenCV.
 
 \subsubsection{Image Preparation and Resizing}
-Images are loaded and preprocessed by cropping the brain region, resizing to the desired dimensions, and normalizing. Sample images are visualized to ensure correct preprocessing.
+Images are loaded and preprocessed by cropping the brain region, resizing to the desired dimensions, and normalizing. 
+Sample images are visualized to ensure correct preprocessing.
 
 \subsubsection{Model Training}
-The dataset is divided into training and test sets. The model undergoes training and monitoring using various metrics. Callbacks are employed to save the best model, and the training process is logged for subsequent analysis. Performance is evaluated on the test set, with additional metrics such as the F1 score to assess effectiveness.
+The dataset is divided into training and test sets. The model undergoes training and monitoring using various metrics. 
+Callbacks are employed to save the best model, and the training process is logged for subsequent analysis. 
+Performance is evaluated on the test set, with additional metrics such as the F1 score to assess effectiveness.
 
 \subsection{Brain Stroke Detection}
 
-For brain stroke detection, we utilized a private dataset from a local hospital. This dataset includes a variety of brain MRI images categorized into negative (no stroke) and positive (stroke) samples.
+For brain stroke detection, we utilized a private dataset from a local hospital. 
+This dataset includes a variety of brain MRI images categorized into negative (no stroke) and positive (stroke) samples.
 
 \paragraph{Image Preprocessing}
 Functions are implemented for resizing, normalizing, and merging image slices into 3D scans.
@@ -185,17 +233,24 @@ The entire dataset is loaded into memory as a 4D array, labeled as stroke (1) or
 \subsubsection{Model Architecture and Training}
 
 \paragraph{Model Architecture}
-The architecture of the 3D Convolutional Neural Network (CNN) model incorporates augmentation layers. The model is compiled with appropriate loss functions, optimizers, and performance metrics.
+The architecture of the 3D Convolutional Neural Network (CNN) model incorporates augmentation layers. 
+The model is compiled with appropriate loss functions, optimizers, and performance metrics.
 
 \paragraph{Model Training and Evaluation}
-This final step involves setting up callbacks for saving the best model, defining the training function, and training the model with various augmentation strategies. The training process is conducted over 150 epochs (EPOCHS = 150), ensuring thorough evaluation and performance optimization.
+This final step involves setting up callbacks for saving the best model, defining the training function, and training the model with various augmentation strategies. 
+The training process is conducted over 150 epochs (EPOCHS = 150), ensuring thorough evaluation and performance optimization.
 
  
 \section{RESULTS AND DISCUSSION}
 
-In this work, we developed and evaluated models for detecting brain tumors and strokes using MRI and CT scan images, respectively. Our approach leveraged advanced convolutional neural networks (CNNs) and comprehensive data preprocessing techniques to achieve significant results. The brain tumor detection model achieved an accuracy of 92\%, while the brain stroke detection model reached an accuracy of 90\%. These results demonstrate the effectiveness of our models in medical image analysis.
+In this work, we developed and evaluated models for detecting brain tumors and strokes using MRI and CT scan images, respectively. 
+Our approach leveraged advanced convolutional neural networks (CNNs) and comprehensive data preprocessing techniques to achieve significant results. 
+The brain tumor detection model achieved an accuracy of 92\%, while the brain stroke detection model reached an accuracy of 90\%. These results demonstrate the effectiveness of our models in medical image analysis.
 
-Despite these promising outcomes, there is room for improvement. Enhancing model performance could be achieved by incorporating additional data, which would provide a more extensive training set and help the model generalize better to unseen cases. Future work will focus on:
+Despite these promising outcomes, there is room for improvement. 
+Enhancing model performance could be achieved by incorporating additional data, which would provide a more extensive training set and help the model generalize better to unseen cases. 
+
+Future work will focus on:
 \begin{itemize}
     \item Expanding the dataset with more diverse and comprehensive samples.
     \item Exploring data augmentation techniques to artificially increase the dataset size.
@@ -204,7 +259,8 @@ Despite these promising outcomes, there is room for improvement. Enhancing model
 
 By addressing these areas, we aim to develop even more reliable and accurate models for brain tumor and stroke detection, ultimately contributing to better diagnostic tools in healthcare.
 
-Table \ref{tab:brain_tumor_comparison} compares the accuracy of our brain tumor detection model with other recent studies. As shown, our model performs competitively, but there is still potential for improvement by leveraging larger and more diverse datasets, as well as advanced machine learning techniques.
+Table \ref{tab:brain_tumor_comparison} compares the accuracy of our brain tumor detection model with other recent studies. 
+As shown, our model performs competitively, but there is still potential for improvement by leveraging larger and more diverse datasets, as well as advanced machine learning techniques.
 
 \begin{table}[htbp]
 \caption{Comparison With Other Brain Tumor Detection Papers}
@@ -224,7 +280,8 @@ RCS-YOLO \cite{wong2020yolo7} & Classes: Tumor, no Tumor \newline Dataset \cite{
 \end{center}
 \end{table}
 
-Similarly, Table \ref{tab:brain_stroke_comparison} compares the accuracy of our brain stroke detection model with other recent studies. Our model shows promising results but indicates that further enhancements could be made by employing larger datasets and more sophisticated algorithms.
+Similarly, Table \ref{tab:brain_stroke_comparison} compares the accuracy of our brain stroke detection model with other recent studies. 
+Our model shows promising results but indicates that further enhancements could be made by employing larger datasets and more sophisticated algorithms.
 
 \begin{table}[htbp]
 \caption{Comparison With Other Brain Stroke Detection Papers}
@@ -244,17 +301,24 @@ OzNet-mRMR-NB \cite{bioengineering9120783} & Classes: Stroke, Normal \newline Da
 \end{center}
 \end{table}
 
-The tables illustrate that while our models are competitive, there is still significant potential for improvement. Incorporating larger and more diverse datasets, utilizing advanced machine learning techniques, and further optimizing our CNN architectures could enhance the accuracy and robustness of our models. This work represents a step towards more effective diagnostic tools in healthcare, ultimately contributing to improved patient outcomes.
+The tables illustrate that while our models are competitive, there is still significant potential for improvement. 
+Incorporating larger and more diverse datasets, utilizing advanced machine learning techniques, and further optimizing our CNN architectures could enhance the accuracy and robustness of our models. 
+This work represents a step towards more effective diagnostic tools in healthcare, ultimately contributing to improved patient outcomes.
 
 
 
 \section{CONCLUSION}
 
-This research has demonstrated the potential of convolutional neural networks (CNNs) for detecting brain tumors and strokes using MRI and CT scan images, respectively. By employing advanced data preprocessing techniques and robust model architectures, we achieved notable accuracies of 92\% for brain tumor detection \cite{br35h} and 90\% for stroke detection \cite{bioengineering9120783}. These results underscore the effectiveness of our approach in enhancing medical image analysis.
+This research has demonstrated the potential of convolutional neural networks (CNNs) for detecting brain tumors and strokes using MRI and CT scan images, respectively. 
+By employing advanced data preprocessing techniques and robust model architectures, we achieved notable accuracies of 92\% for brain tumor detection \cite{br35h} and 90\% for stroke detection \cite{bioengineering9120783}. 
+These results underscore the effectiveness of our approach in enhancing medical image analysis.
 
-Our comprehensive approach, encompassing dataset preparation, model training, and evaluation, ensures that healthcare professionals can rely on these models for accurate and timely diagnoses. The implementation of an intuitive user interface further facilitates the practical application of these models in clinical settings, making advanced diagnostic tools more accessible.
+Our comprehensive approach, encompassing dataset preparation, model training, and evaluation, ensures that healthcare professionals can rely on these models for accurate and timely diagnoses. 
+The implementation of an intuitive user interface further facilitates the practical application of these models in clinical settings, making advanced diagnostic tools more accessible.
 
-Ultimately, our goal is to provide healthcare professionals with reliable diagnostic tools that improve patient outcomes by enabling timely and accurate medical care. Future work will focus on refining our models by incorporating larger and more diverse datasets, exploring innovative data augmentation techniques \cite{huggingface_data}, and implementing cutting-edge deep learning architectures. By continuing to enhance and expand our models, we aim to make a significant contribution to the advancement of medical diagnostics and patient care.
+Ultimately, our goal is to provide healthcare professionals with reliable diagnostic tools that improve patient outcomes by enabling timely and accurate medical care. 
+Future work will focus on refining our models by incorporating larger and more diverse datasets, exploring innovative data augmentation techniques with \cite{huggingface_data}, 
+and implementing cutting-edge deep learning architectures. By continuing to enhance and expand our models, we aim to make a significant contribution to the advancement of medical diagnostics and patient care.
 
 \section{FUTURE WORK}
 
